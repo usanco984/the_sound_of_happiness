@@ -39,6 +39,7 @@ Both datasets were merged at the country_year level using a Python preprocessing
 Data Pipeline (Python)
 The raw Spotify dataset contained approximately 2 million rows and required cleaning before it could be used in Power BI. All preprocessing was consolidated into a single script:
 
+```````python
 # merge.py -- core preprocessing steps
 
 # 1. Load cleaned source file
@@ -63,6 +64,7 @@ merged = yearly.merge(whr_df, on="country_year", how="left")
 
 # 7. Export to Excel for Power BI
 merged.to_excel("happiness_musicyearly_merged.xlsx", index=False)
+```````
 
 Run with: python3 merge.py
 
