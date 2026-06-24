@@ -74,11 +74,13 @@ Power BI Data Modeling
 
 Three core tables connected via a composite country_year key:
 
+```````
 happiness_musicyearly_merged   <->   country_year   <->   music_monthly
                                                      <->   music_top50
+```````
 
 DAX Measures (KPI Cards)
-
+```````dax
 daxKPI Happiest Country =
 FIRSTNONBLANK(
    TOPN(1, VALUES(happiness_musicyearly_merged[country]),
@@ -90,9 +92,10 @@ FIRSTNONBLANK(
     TOPN(1, VALUES(happiness_musicyearly_merged[country]),
         CALCULATE(AVERAGE(happiness_musicyearly_merged[avg_valence])), DESC),
     1)
+```````
 
 DAX Calculated Columns (Grouping)
-
+```````dax
 daxValence Group =
 IF(happiness_musicyearly_merged[avg_valence] < 0.50, "C_Low",
 IF(happiness_musicyearly_merged[avg_valence] < 0.58, "B_Medium", "A_High"))
@@ -100,6 +103,7 @@ IF(happiness_musicyearly_merged[avg_valence] < 0.58, "B_Medium", "A_High"))
 Happiness Group =
 IF(happiness_musicyearly_merged[happiness_score] < 5.5, "Low",
 IF(happiness_musicyearly_merged[happiness_score] < 7, "Medium", "High"))
+```````
 
 # Visuals Used
 Bubble Map, Animated Scatter Plot (Play Axis), Line Charts, Bar and Column Charts, Donut Chart, Advanced Cards, Word Cloud, Narrative Visual, Chiclet Slicer, Field Parameters.
@@ -153,6 +157,7 @@ This project was built collaboratively in Power BI, with Claude (Anthropic) used
 
 
 # Repository Structure
+```````
 the-sound-of-happiness/
 ├── README.md
 ├── /scripts/
@@ -165,6 +170,7 @@ the-sound-of-happiness/
 │   └── write-up.pdf          # Full project write-up
 └── /poster/
     └── poster.png
+```````
 
 # Authors
 Yumiko Kuwana and Truc
