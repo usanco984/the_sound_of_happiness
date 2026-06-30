@@ -127,8 +127,6 @@ the-sound-of-happiness/
 │   └── processed/            # Final Excel files used in Power BI
 ├── powerbi/
 │   └── *.png                 # Dashboard screenshots
-├── write-up/
-│   └── write-up.pdf          # Full project write-up
 └── poster/
     └── poster.pdf
 ```````
